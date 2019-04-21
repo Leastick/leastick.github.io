@@ -238,18 +238,25 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     contex.beginPath();
     const sx = 250;
     const sy = 200;
-    const k = 5.18;
-    const k1 = 1.41;
-    contex.moveTo(sx - 6 * cell_side, sy);
-    contex.lineTo(sx + 6 * cell_side, sy);
-    contex.lineTo(sx + 3 * cell_side, sy + k * cell_side);
-    contex.lineTo(sx - 3 * cell_side, sy - k * cell_side);
-    contex.lineTo(sx + 3 * cell_side, sy - k * cell_side);
-    contex.lineTo(sx - 3 * cell_side, sy + k * cell_side);
-    contex.lineTo(sx - 6 * cell_side, sy);
-    contex.moveTo(sx, sy);
-    contex.lineTo(sx, sy + 12 * cell_side);
+    let current_direction = new Point(0, 3 * cell_side);
+    let start_position = new Point(sx, sy);
+    contex.moveTo(start_position.x, start_position.y);
+    for (let i = 0; i < 12; ++i) {
+        let current_position = start_position.add(current_direction);
+        contex.lineTo(current_position.x, current_position.y);
+        let petal_direction_first = current_direction.rotate(30);
+        let petal_point_first = current_position.add(petal_direction_first);
+        contex.lineTo(petal_point_first.x, petal_point_first.y);
+        contex.moveTo(current_position.x, current_position.y);
+        let petal_direction_second = current_direction.rotate(330);
+        let petal_point_second = current_position.add(petal_direction_second);
+        contex.lineTo(petal_point_second.x, petal_point_second.y);
+        contex.moveTo(start_position.x, start_position.y);
+        current_direction = current_direction.rotate(30);
+    }
+    contex.lineTo(sx, sy + 11 * cell_side);
     contex.moveTo(sx, sy + 8 * cell_side);
+    let k1 = 1.41;
     contex.lineTo(sx + k1 * cell_side, sy + (8 - k1) * cell_side);
     contex.lineTo(sx + 2 * k1 * cell_side, sy + 8 * cell_side);
     contex.lineTo(sx + k1 * cell_side, sy + (8 + k1) * cell_side);
@@ -278,8 +285,6 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     let directing_vector = executor.direction.normalize(0.3 * cell_side).rotate(90);
     let left = part.add(directing_vector);
     let right = part.sub(directing_vector);
-    //let left = part.add(executor.direction.rotate(90).normalize(0.5 * cell_side));
-    //alert('kek1');
     contex.lineTo(arrow.x, arrow.y);
     contex.lineTo(left.x, left.y);
     contex.moveTo(arrow.x, arrow.y);
