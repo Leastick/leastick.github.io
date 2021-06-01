@@ -407,8 +407,8 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     ];
     
     for (let i = 0; i < tPoints.length - 1; ++i) {
-        context.moveTo(tPoints[i][0], tPoints[i][1]);
-        context.lineTo(tPoints[i + 1][0], tPoints[i + 1][1]);
+        contex.moveTo(tPoints[i][0], tPoints[i][1]);
+        contex.lineTo(tPoints[i + 1][0], tPoints[i + 1][1]);
     }
     contex.lineTo(sx, sy + 11 * cell_side);
     contex.moveTo(sx, sy + 8 * cell_side);
