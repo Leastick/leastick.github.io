@@ -383,7 +383,7 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     contex.lineTo(sx, sy + 8 * cell_side);
     contex.lineWidth = 2;
     // contex.setLineDash([5, 3]);
-    contex.strokeStyle = "#ff0702";
+    contex.strokeStyle = "#666666";
     contex.stroke();
     contex.beginPath();
     contex.strokeStyle = "#000000";
