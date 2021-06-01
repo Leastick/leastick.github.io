@@ -234,7 +234,7 @@ function drawCircuit(canvasId, executor, cell_side=25) {
         contex.moveTo(0, y);
         contex.lineTo(current_canvas.width, y)
     }
-    // contex.stroke();
+    contex.stroke();
     contex.beginPath();
     const sx = 250;
     const sy = 200;
@@ -380,7 +380,7 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     contex.lineTo(sx + k1 * cell_side, sy + (8 + k1) * cell_side);
     contex.lineTo(sx, sy + 8 * cell_side);
     contex.lineWidth = 2;
-    contex.setLineDash([5, 3]);
+    // contex.setLineDash([5, 3]);
     contex.strokeStyle = "#ff0702";
     contex.stroke();
     contex.beginPath();
