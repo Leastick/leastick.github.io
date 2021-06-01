@@ -234,7 +234,7 @@ function drawCircuit(canvasId, executor, cell_side=25) {
         contex.moveTo(0, y);
         contex.lineTo(current_canvas.width, y)
     }
-    contex.stroke();
+    // contex.stroke();
     contex.beginPath();
     const sx = 250;
     const sy = 200;
