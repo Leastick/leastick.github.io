@@ -238,7 +238,7 @@ function drawCircuit(canvasId, executor, cell_side=25) {
     contex.beginPath();
     const sx = 250;
     const sy = 200;
-    const points = [
+    const tPoints = [
         [250, 300], 
         [175, 300], 
         [255.34845121081742, 204.24444461012774], 
@@ -406,9 +406,9 @@ function drawCircuit(canvasId, executor, cell_side=25) {
         [249.99999999999994, 500]
     ];
     
-    for (let i = 0; i < points.length - 1; ++i) {
-        context.moveTo(points[i][0], points[i][1]);
-        context.lineTo(points[i + 1][0], points[i + 1][1]);
+    for (let i = 0; i < tPoints.length - 1; ++i) {
+        context.moveTo(tPoints[i][0], tPoints[i][1]);
+        context.lineTo(tPoints[i + 1][0], tPoints[i + 1][1]);
     }
     contex.lineTo(sx, sy + 11 * cell_side);
     contex.moveTo(sx, sy + 8 * cell_side);
